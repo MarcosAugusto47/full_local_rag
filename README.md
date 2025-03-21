@@ -28,6 +28,11 @@ python ingest_documents.py
 
 ## Usage
 
+### Chatbot Mode
+```bash
+python chatbot.py
+```
+
 ### CLI Mode
 ```bash
 python cli.py --query "Your question here"
