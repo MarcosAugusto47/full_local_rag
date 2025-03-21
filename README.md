@@ -2,6 +2,8 @@
 
 ## Setup
 
+I am using python==3.11.11 and mistral:latest that has 4.1 GB size.
+
 1. Install dependencies:
 
 ```bash
