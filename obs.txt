@@ -1,0 +1,21 @@
+# This implementation doesn't maintain conversation history or context from previous questions. Each query is processed independently.
+
+cd sandbox/local_rag
+python ingest_documents.py --dir data
+python local_rag.py --query "What is the main topic of the documents?"
+python local_rag.py --query "What do you have to say about fertilization schedule?"
+
+python cli.py --query "What is the main topic of the documents?"
+uvicorn api:app --reload
+
+# This implementation maintains conversation history
+python ingest_documents.py --dir data
+python chatbot.py
+
+- We could use the chatbot to quickly show for the client the RAG system is working with their data.
+- Ask them to really stress test the system with edge cases and out of scope questions.
+- Analyse the feedback and use it to improve the RAG system.
+- Eu acredito que fazia mais sentido ter uma solucao simples, local, com apenas 1 ou poucos documentos, para implementar coisas mais complexas, como:
+    - re-ranking
+    - muly-step search
+    - feedback collection
